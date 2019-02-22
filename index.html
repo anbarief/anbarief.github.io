@@ -8,15 +8,21 @@ Main Page
 <body>
 
 
-<div style = "background-color: skyblue; font-size: 25px; width: 400px; height: 200px;
+<div id = "square1", style = "background-color: skyblue; font-family: helvetica; font-size: 25px; width: 200px; height: 200px;
 float: left; position: relative; left: 20px; box-shadow: 5px 5px gray; opacity: 0.75", 
-     onclick = "window.location.href = 'jkw_vs_pbw_tweets_plot.html';">
+     onclick = "SquareClicked('square1'); window.location.href = '/home/asus/Arief_tempo/others/Python/website/jkw_vs_pbw_tweets_plot.html'; ">
 Mr.Jokowi and Mr.Prabowo tweets
 </div>
 
 
 
 <script>
+
+
+function SquareClicked(name){
+document.getElementById(name).style.width = 210;
+document.getElementById(name).style.height = 210;
+}
 
 </script>
 
