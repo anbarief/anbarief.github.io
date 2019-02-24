@@ -1,0 +1,240 @@
+<html>
+<head>
+<title>
+Statistics: Inflation in Indonesia (2000 - 2018)
+</title>
+</head>
+
+<body>
+
+<div style = "display: grid; grid-template-columns: auto auto;">
+
+<div style = "display: grid; grid-template-columns: auto;">
+
+<p id= "bahan_makanan", style = "font-weight: bold; font-family: Verdana; background-color: orange; font-size: 12px; width: 100px; height: 40px;
+float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
+   onclick = "CategoryClicked('bahan_makanan')">
+Bahan Makanan
+</p>
+
+<p id= "makanan_jadi", style = "font-weight: bold; font-family: Verdana; background-color: lightgreen; font-size: 12px; width: 100px; height: 40px;
+float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
+   onclick = "CategoryClicked('makanan_jadi')">
+Makanan Jadi
+</p>
+
+<p id= "perumahan", style = "font-weight: bold; font-family: Verdana; background-color: yellow; font-size: 12px; width: 100px; height: 40px;
+float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
+   onclick = "CategoryClicked('perumahan')">
+Perumahan
+</p>
+
+<p id= "sandang", style = "font-weight: bold; font-family: Verdana; background-color: brown; font-size: 12px; width: 100px; height: 40px;
+float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
+   onclick = "CategoryClicked('sandang')">
+Sandang
+</p>
+
+<p id= "kesehatan", style = "font-weight: bold; font-family: Verdana; background-color: green; font-size: 12px; width: 100px; height: 40px;
+float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
+   onclick = "CategoryClicked('kesehatan')">
+Kesehatan
+</p>
+
+<p id= "pendidikan", style = "font-weight: bold; font-family: Verdana; background-color: lightblue; font-size: 12px; width: 100px; height: 40px;
+float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
+   onclick = "CategoryClicked('pendidikan')">
+Pendidikan
+</p>
+
+<p id= "transportasi", style = "font-weight: bold; font-family: Verdana; background-color: orchid; font-size: 12px; width: 100px; height: 40px;
+float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
+   onclick = "CategoryClicked('transportasi')">
+Transportasi
+</p>
+
+<p id= "umum", style = "font-weight: bold; font-family: Verdana; background-color: turquoise; font-size: 12px; width: 100px; height: 40px;
+float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
+   onclick = "CategoryClicked('umum')">
+Umum
+</p>
+
+</div>
+
+
+<div style = "display: grid; grid-template-columns: auto;">
+
+<h1 width = "300", style = "font-family: Verdana; float: left; position: relative; left: 200;"> Statistics: Inflation (Grouped) </h1>
+
+<p width = "300", style = "font-family: Verdana; float: left; position: relative; left: 200; top: -30;"> source:
+    <a href="http://www.kemendag.go.id/id/economic-profile/economic-indicators/inflation">dataset</a> (www.kemendag.go.id)  </p>
+
+<canvas id = "main_canvas", width= "1030", height = "510", 
+        style = "border: 1px solid gray; position: relative; top: -30; left: -50; float: left;
+                 overflow: auto; margin-bottom: 1; margin-left: 200",
+        onclick = "Point(event)">
+</canvas>
+
+</div>
+
+</div>
+
+
+
+<script src = inflation_ina.js> </script>
+
+<script>
+
+var interval_width = 1000/19;
+var months = ['Januari', "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+var years = ['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018'];
+var unit_interval = interval_width/12;
+var main_canvas = document.getElementById("main_canvas");
+var axis = main_canvas.getContext("2d");
+var Color = {'umum': ['turquoise', 1, 'Umum'], 'transportasi': ['orchid', 1, 'Transportasi'], 'pendidikan': ['lightblue', 1, 'Pendidikan'],
+             'kesehatan': ['green', 1, 'Kesehatan'], 'sandang': ['brown', 1, 'Sandang'], 'perumahan': ['yellow', 1, 'Perumahan'], 'makanan_jadi': ['lightgreen', 1, 'Makanan Jadi'],
+             'bahan_makanan': ['orange', 1, 'Bahan Makanan']};
+var category_array = Object.keys(Color);
+
+
+
+axis.fillStyle = "RGBA(220, 220, 220, 0.7)";
+axis.fillRect(0, 0, 1030, 510);
+
+axis.font = "13px Helvetica";
+axis.fillStyle = "gray"
+axis.fillText("-100%", 0, 510 - 95);
+axis.fillText("0%", 0, 510 - 125);
+axis.fillText("100%", 0, 510 - 155);
+axis.fillText("200%", 0, 510 - 185);
+axis.fillText("400%", 0, 510 - 245);
+axis.fillText("600%", 0, 510 - 305);
+
+var i;
+for (i = 0; i < category_array.length; i++)
+{
+ plotCategory(Color[category_array[i]][2], category_array[i]);
+ 
+}
+
+var i;
+for (i = 0; i < 19; i++)
+{
+
+axis.lineWidth = 0.5; 
+
+axis.fillStyle = "gray"
+axis.fillText(years[i], 30 + (i*12)*unit_interval, 510 - 10);
+
+drawLine(30 + (i*12)*unit_interval, 510 - 10, 30 + (i*12)*unit_interval, 510 - 100, "gray"); 
+
+}
+
+
+function drawLine(xstart, ystart, xend, yend, color)
+{
+    axis.beginPath();
+    axis.moveTo(xstart, ystart);
+    axis.lineTo(xend, yend);
+    axis.strokeStyle = color
+    axis.stroke()
+
+}
+
+function plotCategory(name, id)
+{
+
+axis.lineWidth = 3; 
+
+var i;
+for (i = 0; i < 19; i++)
+{
+
+var j;
+for (j = 0; j < 12; j++)
+{
+
+    drawLine(30 + (i*12)*unit_interval + (j)*unit_interval, (510 - (125 )), 30 + (i*12)*unit_interval + j*unit_interval, 510 - (125 + 30*inflation_dict[years[i]][name][months[j]]), Color[id][0]);
+    
+}
+
+}
+
+axis.lineWidth = 0.5;
+
+}
+
+
+
+function Point(event)
+{
+
+    var point = [event.x - main_canvas.offsetLeft, event.y - main_canvas.offsetTop];
+ 
+}
+
+
+
+function CategoryClicked(id)
+{
+
+var category = document.getElementById(id);
+
+Color[id][1] = Color[id][1]*(-1);
+
+if (Color[id][1] == 1)
+{
+category.style["background-color"] = Color[id][0];
+category.style["color"] = "black";
+
+
+}
+else
+{
+category.style["background-color"] = "white";
+category.style["color"] = "RGBA(1,1,1,0.2)";
+}
+
+axis.clearRect(0, 0, 1030, 510);
+
+axis.fillStyle = "RGBA(220, 220, 220, 0.7)";
+axis.fillRect(0, 0, 1030, 510);
+
+axis.font = "13px Helvetica";
+axis.fillStyle = "gray"
+axis.fillText("-100%", 0, 510 - 95);
+axis.fillText("0%", 0, 510 - 125);
+axis.fillText("100%", 0, 510 - 155);
+axis.fillText("200%", 0, 510 - 185);
+axis.fillText("400%", 0, 510 - 245);
+axis.fillText("600%", 0, 510 - 305);
+
+var i;
+for (i = 0; i < category_array.length; i++)
+{
+if (Color[category_array[i]][1] == 1)
+{ plotCategory(Color[category_array[i]][2], category_array[i]);
+}
+}
+
+var i;
+for (i = 0; i < 19; i++)
+{
+
+axis.lineWidth = 0.5; 
+
+axis.fillStyle = "gray"
+axis.fillText(years[i], 30 + (i*12)*unit_interval, 510 - 10);
+
+drawLine(30 + (i*12)*unit_interval, 510 - 10, 30 + (i*12)*unit_interval, 510 - 100, "gray"); 
+
+}
+
+
+}
+</script>
+
+</body>
+
+
+</html>

@@ -1,32 +1,38 @@
 <html>
 <head>
 <title>
-Main Page
+Untitled
 </title>
 </head>
 
 <body>
 
-<div id = "square1", style = "background-color: skyblue; font-family: helvetica; font-size: 25px; width: 200; height: 200;
+
+<div style = "display: grid; grid-template-columns: auto auto auto auto auto auto auto;">
+
+<iframe src="https://ghbtns.com/github-btn.html?user=anbarief&repo=anbarief.github.io&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+
+<a href="https://twitter.com/anbarief" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @anbarief</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<div id = "square1", style = "background-color: skyblue; font-family: Helvetica; font-size: 25px; width: 200; height: 200;
 float: left; position: relative; left: 20px; box-shadow: 5px 5px gray; opacity: 0.75", 
-     onclick = "SquareClicked('square1'); window.location.href = 'jkw_vs_pbw_tweets_plot.html'; ">
+     onclick = "window.location.href = 'jkw_vs_pbw_tweets_plot.html'; ">
 Mr.Jokowi and Mr.Prabowo tweets
 </div>
 
-   
+<div id = "square2", style = "background-color: skyblue; font-family: Helvetica; font-size: 25px; width: 200; height: 200;
+float: left; position: relative; left: 50px; box-shadow: 5px 5px gray; opacity: 0.75", 
+     onclick = "window.location.href = 'inflation_plot.html'; ">
+Statistics: Inflation in Indonesia (2000 - 2018)
+</div>
 
+<div id = "square3", style = "background-color: skyblue; font-family: Helvetica; font-size: 25px; width: 200; height: 200;
+float: left; position: relative; left: 50px; box-shadow: 5px 5px gray; opacity: 0.75", 
+     onclick = "window.location.href = 'wdvp_show.html'; ">
+Submission for World Data Visualization Prize 2019 (did not win though :p)
+</div>
 
-<script>
-
-
-function SquareClicked(name){
-document.getElementById(name).style.width = 210;
-document.getElementById(name).style.height = 210;
-}
-
-</script>
-
-
+</div>
 
 </body>
 
