@@ -108,7 +108,7 @@ function Point(event){
        
         if ((Math.abs(point[0] - jkw_point[0]) < 7) &&  ( Math.abs(point[1] - jkw_point[1]) < 7))
        {
-         display_jkw.innerHTML = "@jokowi tweet: " + jkw_dict[i].text + "          (RT: " + jkw_dict[i].rt.toString()  + ", Likes: " + jkw_dict[i].likes.toString() + ")"  ;
+         display_jkw.innerHTML = "@jokowi tweet: " + jkw_dict[i].text + "          (RT: " + jkw_dict[i].rt.toString()  + ", Likes: " + jkw_dict[i].likes.toString() + ", " + jkw_dict[i].day.toString() + "-" + jkw_dict[i].month.toString() + "-" + jkw_dict[i].year.toString() + ")"  ;
         indicator = 1;
          break;
             }
@@ -116,7 +116,7 @@ function Point(event){
        if ((Math.abs(point[0] - pbw_point[0]) < 7) &&  ( Math.abs(point[1] - pbw_point[1]) < 7))
        {
          
-         display_pbw.innerHTML = "@prabowo tweet: " + pbw_dict[i].text + "          (RT: " + pbw_dict[i].rt.toString()  + ", Likes: " + pbw_dict[i].likes.toString() + ")"  ;
+         display_pbw.innerHTML = "@prabowo tweet: " + pbw_dict[i].text + "          (RT: " + pbw_dict[i].rt.toString()  + ", Likes: " + pbw_dict[i].likes.toString() + ", " + pbw_dict[i].day.toString() + "-" + pbw_dict[i].month.toString() + "-" + pbw_dict[i].year.toString() + ")"  ;
         indicator = 1;
          break;
             }
