@@ -11,49 +11,49 @@ Statistics: Inflation in Indonesia (2000 - 2018)
 
 <div style = "display: grid; grid-template-columns: auto;">
 
-<p id= "bahan_makanan", style = "font-weight: bold; font-family: Verdana; background-color: orange; font-size: 12px; width: 100px; height: 40px;
+<p id= "bahan_makanan", style = "border-radius: 10px; font-weight: bold; font-family: Verdana; background-color: orange; font-size: 20px; width: 140px; height: 40px;
 float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
    onclick = "CategoryClicked('bahan_makanan')">
 Bahan Makanan
 </p>
 
-<p id= "makanan_jadi", style = "font-weight: bold; font-family: Verdana; background-color: lightgreen; font-size: 12px; width: 100px; height: 40px;
+<p id= "makanan_jadi", style = "border-radius: 10px; font-weight: bold; font-family: Verdana; background-color: lightgreen; font-size: 20px; width: 140px; height: 40px;
 float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
    onclick = "CategoryClicked('makanan_jadi')">
 Makanan Jadi
 </p>
 
-<p id= "perumahan", style = "font-weight: bold; font-family: Verdana; background-color: yellow; font-size: 12px; width: 100px; height: 40px;
+<p id= "perumahan", style = "border-radius: 10px; font-weight: bold; font-family: Verdana; background-color: yellow; font-size: 20px; width: 140px; height: 40px;
 float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
    onclick = "CategoryClicked('perumahan')">
 Perumahan
 </p>
 
-<p id= "sandang", style = "font-weight: bold; font-family: Verdana; background-color: brown; font-size: 12px; width: 100px; height: 40px;
+<p id= "sandang", style = "border-radius: 10px; font-weight: bold; font-family: Verdana; background-color: brown; font-size: 20px; width: 140px; height: 40px;
 float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
    onclick = "CategoryClicked('sandang')">
 Sandang
 </p>
 
-<p id= "kesehatan", style = "font-weight: bold; font-family: Verdana; background-color: green; font-size: 12px; width: 100px; height: 40px;
+<p id= "kesehatan", style = "border-radius: 10px; font-weight: bold; font-family: Verdana; background-color: green; font-size: 20px; width: 140px; height: 40px;
 float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
    onclick = "CategoryClicked('kesehatan')">
 Kesehatan
 </p>
 
-<p id= "pendidikan", style = "font-weight: bold; font-family: Verdana; background-color: lightblue; font-size: 12px; width: 100px; height: 40px;
+<p id= "pendidikan", style = "border-radius: 10px; font-weight: bold; font-family: Verdana; background-color: lightblue; font-size: 20px; width: 140px; height: 40px;
 float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
    onclick = "CategoryClicked('pendidikan')">
 Pendidikan
 </p>
 
-<p id= "transportasi", style = "font-weight: bold; font-family: Verdana; background-color: orchid; font-size: 12px; width: 100px; height: 40px;
+<p id= "transportasi", style = "border-radius: 10px; font-weight: bold; font-family: Verdana; background-color: orchid; font-size: 20px; width: 140px; height: 40px;
 float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
    onclick = "CategoryClicked('transportasi')">
 Transportasi
 </p>
 
-<p id= "umum", style = "font-weight: bold; font-family: Verdana; background-color: turquoise; font-size: 12px; width: 100px; height: 40px;
+<p id= "umum", style = "border-radius: 10px; font-weight: bold; font-family: Verdana; background-color: turquoise; font-size: 20px; width: 140px; height: 40px;
 float: left; position: relative; box-shadow: 5px 5px gray; opacity: 0.75",
    onclick = "CategoryClicked('umum')">
 Umum
@@ -64,13 +64,13 @@ Umum
 
 <div style = "display: grid; grid-template-columns: auto;">
 
-<h1 width = "300", style = "font-family: Verdana; float: left; position: relative; left: 200;"> Statistics: Inflation (Grouped) </h1>
+<h1 width = "300", style = "font-family: Verdana; float: left; position: relative; left: 50;"> Statistics: Inflation (Grouped) </h1>
 
-<p width = "300", style = "font-family: Verdana; float: left; position: relative; left: 200; top: -30;"> source:
+<p width = "300", style = "font-family: Verdana; float: left; position: relative; left: 50; top: -30;"> source:
     <a href="http://www.kemendag.go.id/id/economic-profile/economic-indicators/inflation">dataset</a> (www.kemendag.go.id)  </p>
 
 <canvas id = "main_canvas", width= "1030", height = "510", 
-        style = "border: 1px solid gray; position: relative; top: -30; left: -50; float: left;
+        style = "border: 1px solid gray; position: relative; top: -30; left: -120; float: left;
                  overflow: auto; margin-bottom: 1; margin-left: 200",
         onclick = "Point(event)">
 </canvas>
@@ -78,8 +78,6 @@ Umum
 </div>
 
 </div>
-
-
 
 <script src = inflation_ina.js> </script>
 
