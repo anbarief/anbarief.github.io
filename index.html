@@ -7,15 +7,6 @@ Untitled
 
 <body>
 
-
-<div style = "display: grid; grid-template-columns: auto">
-
-<canvas id = "creative_1", width= "1350", height = "1000", 
-        style = "border: none; position: relative; float: left;">
-</canvas>
-
-</div>
-
 <div style = "display: grid; grid-template-columns: auto auto auto auto auto auto auto;">
 
 <iframe src="https://ghbtns.com/github-btn.html?user=anbarief&repo=anbarief.github.io&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
@@ -41,57 +32,6 @@ Submission for World Data Visualization Prize 2019 (did not win though :p)
 </div>
 
 </div>
-
-<script>
-
-
-Plot('creative_1');
-
-function Plot(id){
-
-   var canvas = document.getElementById(id);
-   var axis = canvas.getContext("2d");
-
-    var i;
-    for (i=0; i< 12000*Math.random(); i++)
-   {
-    var color1 = 5*Math.random();
-    var color2 = 40 + 80*Math.random();
-    var color3 = 100 + 155*Math.random();
-    var color4 = Math.random();
-    var rgba = "RGBA("+color1.toString()+","+color2.toString()+","+color3.toString()+","+color4.toString()+")";
-    drawCircle(axis, 1350*Math.random(), 1000 - 1000*Math.random(), Math.random()*20, rgba);
-
-    var x = 1350*Math.random();
-    var y = 1000*Math.random();
-    axis.lineWidth = 5*Math.random(); 
-    drawLine(axis, x, 1000 - y,
-             x + 60*Math.random(), 1000 - (y + 60*Math.random(-1, 1)), rgba);
-
-    }
-
-    }
-
-function drawCircle(ax, x, y, r, color){
-    ax.beginPath();
-    ax.arc(x, y, r, 0, 2*Math.PI)
-    ax.fillStyle = color;   
-    ax.fill()
-    }
-
-function drawLine(ax, xstart, ystart, xend, yend, color)
-{
-    ax.beginPath();
-    ax.moveTo(xstart, ystart);
-    ax.lineTo(xend, yend);
-    ax.strokeStyle = color
-    ax.stroke()
-
-}
-
-
-</script>
-
 </body>
 
 
