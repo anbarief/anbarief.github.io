@@ -128,8 +128,19 @@ axis.fillText(years[i], 30 + (i*12)*unit_interval, 510 - 10);
 
 drawLine(30 + (i*12)*unit_interval, 510 - 10, 30 + (i*12)*unit_interval, 510 - 100, "gray"); 
 
+   
+
 }
 
+function drawCircle(x, y, r, color){
+    var grd = axis.createLinearGradient(x, y, x+10, y+10);
+    grd.addColorStop(0, color);
+    grd.addColorStop(1, "gray");
+    axis.beginPath();
+    axis.arc(x, y, r, 0, 2*Math.PI)
+    axis.fillStyle = grd;   
+    axis.fill()
+    }
 
 function drawLine(xstart, ystart, xend, yend, color)
 {
@@ -154,8 +165,8 @@ var j;
 for (j = 0; j < 12; j++)
 {
 
-    drawLine(30 + (i*12)*unit_interval + (j)*unit_interval, (510 - (125 )), 30 + (i*12)*unit_interval + j*unit_interval, 510 - (125 + 30*inflation_dict[years[i]][name][months[j]]), Color[id][0]);
-    
+    //drawLine(30 + (i*12)*unit_interval + (j)*unit_interval, (510 - (125 )), 30 + (i*12)*unit_interval + j*unit_interval, 510 - (125 + 30*inflation_dict[years[i]][name][months[j]]), Color[id][0]);
+    drawCircle(30 + (i*12)*unit_interval + (j)*unit_interval , 510 - (125 + 30*inflation_dict[years[i]][name][months[j]]), 5, Color[id][0])
 }
 
 }
